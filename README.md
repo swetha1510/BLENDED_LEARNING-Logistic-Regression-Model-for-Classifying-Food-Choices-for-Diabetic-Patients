@@ -16,7 +16,8 @@ To implement a logistic regression model to classify food items for diabetic pat
 5. Scale feature columns using MinMaxScaler.
 6. Encode target labels with LabelEncoder.
 7. Split data into training and testing sets with train_test_split().
-8. Train LogisticRegression with specified hyperparameters and evaluate the model using metrics and a confusion matrix plot. 
+8. Train LogisticRegression with specified hyperparameters and evaluate the model using metrics and a confusion matrix plot.
+9. 
 ## Program:
 ```
 /*
@@ -24,6 +25,7 @@ Program to implement Logistic Regression for classifying food choices based on n
 Developed by: SWETHA P
 RegisterNumber: 212222100053
 ```
+
 ```py
 import pandas as pd
 import numpy as np
@@ -40,7 +42,9 @@ food_df = pd.read_csv(dataset_url)
 
 food_df.dtypes
 ```
+
 ![image](https://github.com/user-attachments/assets/f92974d5-8ded-408d-b9b3-95ca058fae13)
+
 
 ```py
 X_raw = food_df.iloc[:, :-1]
@@ -60,7 +64,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratif
 print(f"Training dataset shape, X_train: {X_train.shape}, y_train: {y_train.shape}")
 print(f"Testing dataset shape, X_test: {X_test.shape}, y_test: {y_test.shape}")
 ```
+
 ![image](https://github.com/user-attachments/assets/04fea767-3c33-40b9-8979-7ddde406f827)
+
 
 ```py
 penalty= 'elasticnet'
@@ -71,7 +77,9 @@ l1_ratio = 0.5
 en_model = LogisticRegression(random_state=2, penalty=penalty, multi_class=multi_class, solver=solver, max_iter=max_iter, l1_ratio=l1_ratio)
 en_model.fit(X_train, y_train)
 ```
+
 ![image](https://github.com/user-attachments/assets/0735129b-fd11-4791-aa01-054f3a6a9266)
+
 
 ```py
 def evaluate_metrics(y_true, y_pred):
@@ -103,7 +111,6 @@ print(en_metrics)
 
 ## Output:
 ![image](https://github.com/user-attachments/assets/db6c12a5-e1f9-438a-8436-6cf742ae9189)
-
 
 
 ## Result:
